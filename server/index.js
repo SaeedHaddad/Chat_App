@@ -14,7 +14,8 @@ server.on("connection", socket => { //this line sets up an event listener for th
     //"message" is the name of the event, it triggers when a message is received from the client.
     //message is an arrow function that is executed each time a mesage is received.
   socket.on("message", message => { // this line adds an event listener to the socket object to handle incoming messages from the connected client
-    console.log(message)
+    const b = Buffer.from(message)
+    console.log(b.toString()) //why b.toString instead of message???? (it converts the output from Buffer< @@@ > to the actual text displayed on the browser)
     socket.send(`${message}`); //this sendsthe received message back to the client as a response 
 
   });
